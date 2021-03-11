@@ -1,6 +1,58 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import CocktailCard from './cocktails/CocktailCard'
 
 const Home = () => {
+
+  const [cocktailName1, setCocktailName] = useState(null)
+  console.log(cocktailName1)
+
+
+  const handleChange = event => {
+    setCocktailName(event.target.value)
+  }
+
+
+  const [randomCocktail, setRandomCocktail] = useState([])
+  useEffect(() => {
+    const getData = async() => {
+      const { data } = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+      setRandomCocktail(data.drinks)
+    }
+    getData()
+  }, [])
+
+  const [randomCocktail1, setRandomCocktail1] = useState([])
+  useEffect(() => {
+    const getData = async() => {
+      const { data } = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+      setRandomCocktail1(data.drinks)
+    }
+    getData()
+  }, [])
+
+  const [randomCocktail2, setRandomCocktail2] = useState([])
+  useEffect(() => {
+    const getData = async() => {
+      const { data } = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+      setRandomCocktail2(data.drinks)
+    }
+    getData()
+  }, [])
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <>
       <section className="hero is-medium is-link">
@@ -20,7 +72,7 @@ Medium subtitle
           <form className="is-inline">
             <div className="field has-addons">
               <div className="control">
-                <input className="input" type="text" placeholder="Serch by cocktail..." />
+                <input className="input" type="text" placeholder="Search by cocktail..." onChange={handleChange}/>
               </div>
               <div className="control">
                 <a className="button is-info">
@@ -30,7 +82,7 @@ Medium subtitle
             </div>
             <div className="field has-addons">
               <div className="control">
-                <input className="input" type="text" placeholder="Serch by ingredient..." />
+                <input className="input" type="text" placeholder="Search by ingredient..." />
               </div>
               <div className="control">
                 <a className="button is-info">
@@ -42,10 +94,22 @@ Medium subtitle
         </div>
       </section>
 
-
       <section className="section is-medium">
-        <h1 className="title">Medium section</h1>
-        <h2 className="subtitle">A simple container to divide you</h2>
+        <h1>Popular Cocktails</h1>
+        <div className="flex">
+          { randomCocktail.map(cocktail => (
+            <CocktailCard key={cocktail.idDrink} {...cocktail}
+            />
+          ))}
+          { randomCocktail1.map(cocktail => (
+            <CocktailCard key={cocktail.idDrink} {...cocktail}
+            />
+          ))}
+          { randomCocktail2.map(cocktail => (
+            <CocktailCard key={cocktail.idDrink} {...cocktail}
+            />
+          ))}
+        </div>
       </section>
 
 
