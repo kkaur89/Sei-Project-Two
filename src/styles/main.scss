@@ -1,0 +1,14 @@
+@import '~bulma/bulma.sass';
+
+div.container {
+  display: inline;
+
+}
+
+nav {
+  height: 100px;
+}
+
+.navbar-item img {
+  max-height: 100%;
+}
