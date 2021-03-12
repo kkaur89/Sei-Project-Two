@@ -9,14 +9,17 @@ const Navbar = () => {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <a className="navbar-item">
-          <img src="/images/main.png" alt="Tipple your fancy" width="100" height="500" />
-        </a>
+        <img src="/images/Better Logo.png" alt="Tipple your fancy" />
       </div>
       <div id="navbarExampleTransparentExample" className="navbar-menu">
         <div className="navbar-start">
           <Link to="/" className="navbar-item">
             Home
+          </Link>
+        </div>
+        <div className="navbar-start">
+          <Link to="/a-z" className="navbar-item">
+            A-Z
           </Link>
         </div>
         <Link to="/cocktail" className="navbar-item">

@@ -6,6 +6,21 @@ const CocktailCard = ({ idDrink, strDrink, strDrinkThumb }) => {
 
 
 
+
+
+
+
+
+
+  const revertBackground = (event) => {
+    event.target.style.opacity = '1'
+  }
+
+  const changeBackground = (event) => {
+    event.target.style.opacity = '0.2'
+  }
+
+
   return (
 
     <div className="column is-one-quarter-desktop is-one-third-tablet">
@@ -16,7 +31,11 @@ const CocktailCard = ({ idDrink, strDrink, strDrinkThumb }) => {
           </div>
           <div className="card-image">
             <figure className="image image-is-1by1">
-              <img src={strDrinkThumb} alt={`${strDrink} Cocktail`} />
+              <img src={strDrinkThumb} alt={`${strDrink} Cocktail`} onMouseOver={changeBackground} onMouseLeave={revertBackground}/>
+              <div className='test' onMouseOver={revertBackground}>
+                {strDrink}
+                {idDrink}  
+              </div>
             </figure>
           </div>
         </div>

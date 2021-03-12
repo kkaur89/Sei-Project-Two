@@ -1,23 +1,120 @@
 @import '~bulma/bulma.sass';
 
+body {
+  font-family: 'Pacifico', cursive;
+}
+
 div.container {
   display: inline;
-
 }
-
-nav {
+.navbar {
   height: 100px;
+  margin: 0 100px;
 }
-
 .navbar-item img {
   max-height: 100%;
+  max-width: 100%;
 }
-
 .flex {
   display: flex;
   justify-content: space-around;
+}
+div.field.has-addons {
+  margin: 10px 400px;
+}
+section.section {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(250, 238, 221);
+}
+section.hero.is-medium.is-link {
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../images/Multi\ Cocktails.jpg');
+  background-size: cover;
+  margin: 20px 0 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+// div.column.is-one-quarter-desktop.is-one-third-tablet {
+//   margin: 0 30px 0 0;
+// }
+section.section.is-medium {
+  padding: 75px 24px;
+  background-color: white;
+}
+div.hero-body {
+  justify-content: space-between;
+  padding: 75px 24px;
+}
+  img.shaker {
+  height: 150px;
+  width: 90px;
+  margin: 0 0 0 1500px;
+}
+@media screen and (min-width: 769px), print {
+  .hero.is-medium .hero-body {
+    padding: 75px 24px;
+  }
+}
+div.navbar-brand {
+  width: 330px;
+}
+h1.popular {
+  text-align: center;
+  padding: 20px;
+  font-size: 40px;
+  align-items: center;
+  margin: 0 0 0 700px;
+}
+
+
+
+
+
+ul.alphabet {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin: 50px 0 50px 150px;
+}
+
+.bigLetters {
+  font-size: 20px;
+  margin: 0px 5px;
+  font-family: 'Pacifico', cursive;
+
+}
+
+.test {
+  opacity: 0;
+  position: relative;
+  text-align: center;
+  transform: translate(0%, -1000%);
 }
 
 // div.column.is-one-quarter-desktop.is-one-third-tablet {
 //   margin: 0 30px 0 0;
 // }
+
+.columns {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+img.shaker:hover {
+  animation: shake 0.5s; 
+  animation-iteration-count: infinite; 
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}

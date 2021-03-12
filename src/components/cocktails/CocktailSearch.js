@@ -3,9 +3,12 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import CocktailCard from './CocktailCard'
 
+
 const CocktailSearch = ({ cocktailName1 }) => {
 
-  console.log(cocktailName1)
+  const cocktailTest = cocktailName1
+  console.log(cocktailTest)
+  // console.log(cocktailName1)
 
   const params = useParams()
   console.log(params)
@@ -39,6 +42,12 @@ const CocktailSearch = ({ cocktailName1 }) => {
 
 
 
+
+
+
+
+
+
   return (
     <>
       <section className="section">
@@ -46,7 +55,7 @@ const CocktailSearch = ({ cocktailName1 }) => {
           <form className="is-inline">
             <div className="field has-addons">
               <div className="control">
-                <input className="input" type="text" placeholder="Search by cocktail..." onChange={handleChange} />
+                <input className="input" type="text" placeholder={cocktailName1} onChange={handleChange} value={cocktailName1} />
               </div>
               <div className="control">
                 <a className="button is-info" onClick={handleSubmit}>

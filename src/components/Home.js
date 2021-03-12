@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import CocktailCard from './cocktails/CocktailCard'
+import { useHistory } from 'react-router-dom'
+import CocktailSearch from './cocktails/CocktailSearch'
 
 const Home = () => {
+
+  const history = useHistory()
 
   const [cocktailName1, setCocktailName] = useState(null)
   console.log(cocktailName1)
@@ -10,6 +14,11 @@ const Home = () => {
 
   const handleChange = event => {
     setCocktailName(event.target.value)
+  }
+
+  const handleSubmit = event => {
+    console.log(event)
+    history.push('/cocktail')
   }
 
 
@@ -58,15 +67,14 @@ const Home = () => {
       <section className="hero is-medium is-link">
         <div className="hero-body">
           <p className="title">
-Medium hero
+Anything Tipple Your Fancy?
           </p>
           <p className="subtitle">
-Medium subtitle
+If so shake the cocktail shaker to see, or just search below...
           </p>
+          <img src="/images/shaker.png" alt="shaker" className="shaker"/>
         </div>
       </section>
-
-
       <section className="section">
         <div className="container">
           <form className="is-inline">
@@ -75,8 +83,8 @@ Medium subtitle
                 <input className="input" type="text" placeholder="Search by cocktail..." onChange={handleChange}/>
               </div>
               <div className="control">
-                <a className="button is-info">
-                  Search
+                <a className="button is-info" onClick={handleSubmit}>
+                Search
                 </a>
               </div>
             </div>
@@ -85,8 +93,8 @@ Medium subtitle
                 <input className="input" type="text" placeholder="Search by ingredient..." />
               </div>
               <div className="control">
-                <a className="button is-info">
-                  Search
+                <a className="button is-info" onClick={handleSubmit}>
+                Search
                 </a>
               </div>
             </div>
@@ -94,8 +102,12 @@ Medium subtitle
         </div>
       </section>
 
+      <p>test seacrh</p>
+      <CocktailSearch  {...cocktailName1}/>
+
+
       <section className="section is-medium">
-        <h1>Popular Cocktails</h1>
+        <h1 className="popular">Popular Cocktails</h1>
         <div className="flex">
           { randomCocktail.map(cocktail => (
             <CocktailCard key={cocktail.idDrink} {...cocktail}
