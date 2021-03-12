@@ -1,17 +1,42 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 import CocktailCard from './CocktailCard'
 
 
-const CocktailSearch = ({ cocktailName1 }) => {
+const CocktailSearch = (props) => {
 
-  const cocktailTest = cocktailName1
-  console.log(cocktailTest)
+  const location = useLocation()
+
+  const [cocktailHome] = useState(location.state?.cocktailName1 || '')
+  const [ingredientHome] = useState(location.state?.ingredientName1 || '')
+  // console.log(cocktailHome)
+
+  // const cocktailTest = cocktailName1
+  console.log(props)
   // console.log(cocktailName1)
 
-  const params = useParams()
-  console.log(params)
+  useEffect(() => {
+    const getData = async() => {
+      const { data } = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailHome}`)
+      setCocktails(data.drinks)
+    }
+    getData()
+  }, [])
+
+  if (ingredientHome === '') {
+    return true
+  } else {
+    useEffect(() => {
+      const getData = async() => {
+        const { data } = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredientHome}`)
+        setCocktails(data.drinks)
+      }
+      getData()
+    }, [])
+  }
+
+
 
   const [cocktailName, setCocktailName] = useState(null)
   const [ingredientName, setIngredientName] = useState(null)
@@ -50,12 +75,15 @@ const CocktailSearch = ({ cocktailName1 }) => {
 
   return (
     <>
+      <div className="cocktail-container">
+        <p className="search-text">Woahhhh look at those cocktails!</p>
+      </div>
       <section className="section">
         <div className="container">
           <form className="is-inline">
             <div className="field has-addons">
               <div className="control">
-                <input className="input" type="text" placeholder={cocktailName1} onChange={handleChange} value={cocktailName1} />
+                <input className="input" type="text" placeholder='Search by cocktail...' onChange={handleChange} value={cocktailHome} />
               </div>
               <div className="control">
                 <a className="button is-info" onClick={handleSubmit}>
@@ -65,7 +93,7 @@ const CocktailSearch = ({ cocktailName1 }) => {
             </div>
             <div className="field has-addons">
               <div className="control">
-                <input className="input" type="text" placeholder="Search by ingredient..." onChange={handleChange2}/>
+                <input className="input" type="text" placeholder="Search by ingredient..." onChange={handleChange2} value={ingredientHome}/>
               </div>
               <div className="control">
                 <a className="button is-info" onClick={handleSubmit2}>

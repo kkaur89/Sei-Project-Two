@@ -28,15 +28,17 @@ const AtoZ = () => {
 
   return (
     <>
-      <ul className="alphabet">
-        {alpha.map(letter => {
-          return (
-            <button key={letter} value={letter} onClick={handleLetter} className="bigLetters">
-              {letter}
-            </button>
-          )
-        })}
-      </ul>
+      <div className="containerAZ">
+        <ul className="alphabet">
+          {alpha.map(letter => {
+            return (
+              <button key={letter} value={letter} onClick={handleLetter} className="bigLetters">
+                {letter}
+              </button>
+            )
+          })}
+        </ul>
+      </div>
       <div className="columns is-multiline">
         { cocktails.map(cocktail => (
           <CocktailCard key={cocktail.idDrink} {...cocktail}

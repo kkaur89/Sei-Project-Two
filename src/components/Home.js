@@ -2,23 +2,28 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import CocktailCard from './cocktails/CocktailCard'
 import { useHistory } from 'react-router-dom'
-import CocktailSearch from './cocktails/CocktailSearch'
+
 
 const Home = () => {
 
   const history = useHistory()
 
   const [cocktailName1, setCocktailName] = useState(null)
-  console.log(cocktailName1)
+
+
+  const [ingredientName1, setIngredientName] = useState(null)
 
 
   const handleChange = event => {
     setCocktailName(event.target.value)
   }
+  const handleIngredientChange = event => {
+    setIngredientName(event.target.value)
+  }
 
   const handleSubmit = event => {
     console.log(event)
-    history.push('/cocktail')
+    history.push({ pathname: '/cocktail', state: { cocktailName1, ingredientName1 } })
   }
 
 
@@ -49,9 +54,14 @@ const Home = () => {
     getData()
   }, [])
 
+  
+  const [randomCocktail3, setRandomCOcktail3] = useState([])
 
-
-
+  const handleClick = async event => {
+    console.log(event)
+    const { data } = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+    setRandomCOcktail3(data.drinks)
+  }
 
 
 
@@ -66,13 +76,19 @@ const Home = () => {
     <>
       <section className="hero is-medium is-link">
         <div className="hero-body">
-          <p className="title">
-Anything Tipple Your Fancy?
-          </p>
-          <p className="subtitle">
-If so shake the cocktail shaker to see, or just search below...
-          </p>
-          <img src="/images/shaker.png" alt="shaker" className="shaker"/>
+          <div className="hero-text">
+            <p className="title">
+  Anything Tipple Your Fancy?
+            </p>
+            <p className="subtitle">
+  If so shake the cocktail shaker to see, or just search below...
+            </p>
+          </div>
+          <img src="/images/shaker.png" alt="shaker" className="shaker" onClick={handleClick}/>
+          { randomCocktail3.map(cocktail => (
+            <CocktailCard key={cocktail.idDrink} {...cocktail}
+            />
+          ))}
         </div>
       </section>
       <section className="section">
@@ -90,7 +106,7 @@ If so shake the cocktail shaker to see, or just search below...
             </div>
             <div className="field has-addons">
               <div className="control">
-                <input className="input" type="text" placeholder="Search by ingredient..." />
+                <input className="input" type="text" placeholder="Search by ingredient..." onChange={handleIngredientChange}/>
               </div>
               <div className="control">
                 <a className="button is-info" onClick={handleSubmit}>
@@ -102,11 +118,7 @@ If so shake the cocktail shaker to see, or just search below...
         </div>
       </section>
 
-      <p>test seacrh</p>
-      <CocktailSearch  {...cocktailName1}/>
-
-
-      <section className="section is-medium">
+      <section className="section is-medium centerThis">
         <h1 className="popular">Popular Cocktails</h1>
         <div className="flex">
           { randomCocktail.map(cocktail => (
