@@ -4,17 +4,20 @@ import axios from 'axios'
 import CocktailCard from './CocktailCard'
 
 
-const CocktailSearch = (props) => {
+const CocktailSearch = () => {
 
   const location = useLocation()
 
   const [cocktailHome] = useState(location.state?.cocktailName1 || '')
   const [ingredientHome] = useState(location.state?.ingredientName1 || '')
-  // console.log(cocktailHome)
 
-  // const cocktailTest = cocktailName1
-  console.log(props)
-  // console.log(cocktailName1)
+  const [cocktailName, setCocktailName] = useState(null)
+  const [ingredientName, setIngredientName] = useState(null)
+
+  const [cocktails, setCocktails] = useState(null)
+  const [ingredCocktails, setIngredCocktails] = useState(null)
+  // console.log(cocktails, setCocktails)
+
 
   useEffect(() => {
     const getData = async() => {
@@ -24,25 +27,18 @@ const CocktailSearch = (props) => {
     getData()
   }, [])
 
-  if (ingredientHome === '') {
-    return true
-  } else {
-    useEffect(() => {
-      const getData = async() => {
-        const { data } = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredientHome}`)
-        setCocktails(data.drinks)
-      }
-      getData()
-    }, [])
-  }
+  useEffect(() => {
+    const getData = async() => {
+      const { data } = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredientHome}`)
+      setIngredCocktails(data.drinks)
+    }
+    getData()
+  }, [])
 
 
 
-  const [cocktailName, setCocktailName] = useState(null)
-  const [ingredientName, setIngredientName] = useState(null)
 
-  const [cocktails, setCocktails] = useState([])
-  console.log(cocktails, setCocktails)
+
 
   const handleChange = event => {
     setCocktailName(event.target.value)
@@ -71,10 +67,13 @@ const CocktailSearch = (props) => {
 
 
 
+  if (!cocktails && !ingredCocktails) return null
+  
 
 
   return (
     <>
+      {console.log(cocktails)}
       <div className="cocktail-container">
         <p className="search-text">Woahhhh look at those cocktails!</p>
       </div>
@@ -105,10 +104,17 @@ const CocktailSearch = (props) => {
         </div>
       </section>
       <div className="columns is-multiline">
-        { cocktails.map(cocktail => (
-          <CocktailCard key={cocktail.idDrink} {...cocktail}
-          />
-        ))}
+        { !cocktails ?
+          ingredCocktails.map(cocktail => (
+            <CocktailCard key={cocktail.idDrink} {...cocktail}
+            />
+          ))
+          :
+          cocktails.map(cocktail => (
+            <CocktailCard key={cocktail.idDrink} {...cocktail}
+            />
+          ))
+        }
       </div>  
 
       <nav className="pagination" role="navigation" aria-label="pagination">

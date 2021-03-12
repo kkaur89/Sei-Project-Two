@@ -78,7 +78,7 @@ const Home = () => {
         <div className="hero-body">
           <div className="hero-text">
             <p className="title">
-  Anything Tipple Your Fancy?
+  Fancy a tipple?
             </p>
             <p className="subtitle">
   If so shake the cocktail shaker to see, or just search below...
@@ -140,7 +140,7 @@ const Home = () => {
       <footer className="footer">
         <div className="content has-text-centered">
           <p>
-            <strong>Tipple your Fancy</strong>
+            <strong>Tipple your Fancy by Mike and Karen</strong>
           </p>
         </div>
       </footer>
