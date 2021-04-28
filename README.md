@@ -138,4 +138,55 @@ The main issue we came across was that the below function we used to push the us
 
 As this was the example that we were given during class, we were unclear as to why this was not working. We exhasted the internet for solutions. The next and final day out course tutors helped us with a fix using ```{useLocation}``` which was unknown to us.
 
-This meant that 
+This meant that what the search criteria entered into fields on the page, would then need to be passed into the Get request on the Cocktail search page in order for the page to render with the results. So the code was refactored to the below on the homepage:
+
+
+    const Home = () => {
+      const history = useHistory()
+      const [cocktailName1, setCocktailName] = useState(null)
+      const [ingredientName1, setIngredientName] = useState(null)
+      const handleChange = event => {
+        setCocktailName(event.target.value)
+      }
+      const handleIngredientChange = event => {
+        setIngredientName(event.target.value)
+      }
+      const handleSubmit = event => {
+        console.log(event)
+        history.push({ pathname: '/cocktail', state: { cocktailName1, ingredientName1 } })
+      }
+      
+The cocktail search page code was also refactored to the below:
+
+
+      const location = useLocation()
+
+      const [cocktailHome] = useState(location.state?.cocktailName1 || '')
+      const [ingredientHome] = useState(location.state?.ingredientName1 || '')
+
+
+      useEffect(() => {
+        const getData = async() => {
+          const { data } = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailHome}`)
+          setCocktails(data.drinks)
+        }
+        getData()
+      }, [])
+
+      useEffect(() => {
+        const getData = async() => {
+          const { data } = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredientHome}`)
+          setIngredCocktails(data.drinks)
+        }
+        getData()
+        
+This function also replaces with placeholder text inside the search input field with the search criteria from the user in the homepage. See below:
+
+
+https://user-images.githubusercontent.com/77445688/116415877-bc3e5e80-a831-11eb-8bcb-44fbd564f1ef.mov
+
+### Styling 
+The layout was created using Bulma framework, helping to provide the site with a coherent structures. The logo was created using free logo websites, with the inspiration for the colour theme of the site being taken from the logo image.
+
+There was use of CSS animations which can be seen on the cocktail shaker on the homepage. Hover over the cocktail shaker and it starts to shake. If you click on the shaker, then a random cocktail appear on the screen in the format of the cocktail card. 
+
