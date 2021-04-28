@@ -17,6 +17,8 @@ This was a pair coding project, where we were briefed to build a React app using
 
 This API had many different endpoints, allowing you to search by ingredient, name etc. This then allowed us to make multiple requests and add more features for the user.
 
+![Screenshot 2021-04-28 at 14 42 10](https://user-images.githubusercontent.com/77445688/116414016-06264500-a830-11eb-8ea3-fc9b4bf0bd15.png)
+
 Deployed version available **[here](https://tipple-your-fancy.netlify.app)**.
 
 ## Project Brief
@@ -67,7 +69,7 @@ Once we were signed off, we started coding our project first by creating the app
 We started off by installing the Bulma Framework so that we could render a basic layout for our homepage. From this we were able to import a navbar, which we then added Links to and then imported this component to App.js which held all of our routers.
 
 **Home Page:**
-For the homepage, before we added any functionality, we started rendering components in the JSX return section. We hadded a hero, two search bars (name, ingredient) and a container that would hold popular cocktails using the random api endpoint.
+For the homepage, before we added any functionality, we started rendering components in the JSX return section. We added a hero, two search bars (name, ingredient) and a container that would hold popular cocktails using the random api endpoint. The concept was for the user to search the cocktail by either the name or ingredient on the homepage, and then the user would be taken to Cocktail Search page using useHistory.
 
 **Cocktail Search:** 
 This component was the page that would render the search results of each cocktail in a grid format. We started by importing useState, useEffect and Axios so that we create our get GET requests to the API. Once we had created the requested, the data was then returned in an array format which we then needed to map through in the JSX. There were two differnet GET requests, one for the name of the cocktail and the other for the ingredient. We used console.log as much as possible to ensure we were capturing the data that was intended.
@@ -95,9 +97,45 @@ This component was the page that would render the search results of each cocktai
     }, [])
 
 **Cocktail Card:**
-Once we had mapped through the array from the GET request in the cocktail seach component, we were able to pass in the keys the props and access them in the Cocktail Card. The puporse of this component is to format each cocktail within the grid on the previous page. A link to was also added to the card which linked to url of cocktail that was being clicked. This component was then imported into the Cocktail Search and returned within the map method of the get request 
+Once we had mapped through the array from the GET request in the cocktail seach component, we were able to pass in the keys the props and access them in the Cocktail Card. The puporse of this component is to format each cocktail within the grid on the previous page. A link to was also added to the card which linked to url of cocktail that was being clicked. This component was then imported into the Cocktail Search and returned within the map method of the get request.
+
+      <div className="columns is-multiline">
+        { !cocktails ?
+          ingredCocktails.map(cocktail => (
+            <CocktailCard key={cocktail.idDrink} {...cocktail}
+            />
+          ))
+          :
+          cocktails.map(cocktail => (
+            <CocktailCard key={cocktail.idDrink} {...cocktail}
+            />
+          ))
+        }
+      </div> 
 
 **Cocktail Show:**
 The cocktail show component is the page that would display each cocktail with full information of method and ingredients. We used the table component from Bulma to display ingredient and the measure needed for each. The url for each cocktail was used using the id of the cocktail which we then added to App.js as an additional filepath route ```  <Route path="/cocktail/:id">```.
 
+**A-Z:** 
+This component was created by using the search by letter api endpoint. An array was created of letters which were then mapped through in JSX. Each letter was rendered as a button on the page, and then the onClick would handle the return of all the cocktails that have that begin with that letter being clicked.
 
+The main issue we came across was that the below function we used to push the user to cocktail search page after typing something in the search field was not working. 
+
+
+    const Home = () => {
+      const history = useHistory()
+      
+      const handleChange = event => {
+        setCocktailName(event.target.value)
+      }
+      const handleIngredientChange = event => {
+        setIngredientName(event.target.value)
+      }
+      const handleSubmit = event => {
+        console.log(event)
+        history.push('/cocktail')
+      }
+
+As this was the example that we were given during class, we were unclear as to why this was not working. We exhasted the internet for solutions. The next and final day out course tutors helped us with a fix using ```{useLocation}``` which was unknown to us.
+
+This meant that 
