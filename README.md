@@ -194,5 +194,26 @@ There was use of CSS animations which can be seen on the cocktail shaker on the 
 https://user-images.githubusercontent.com/77445688/116418903-7636ca00-a834-11eb-9f2b-e439c34990be.mov
 
 
-### Bugs
-The ingredient search feature returns results with other spirits as well as the one entered, i.e. rum will bring back vodka based cocktails.
+## Bugs
+The ingredient search feature returns cocktails with other spirits as well as the one entered, i.e. rum will bring back vodka based cocktails also.
+
+## Challenges
+This biggest challenge was working ont he fix for results to render on a different page. That took my and my coding partner hours to try and fix on our before we had to ask for help.
+
+## Wins
+
+Pair Coding - this was my first time pair coding for a project. Myself and Mike worked really well, we played to each others strengths which really paid off given the short time we had to complete the project. Having two sets of eyes on the code really helped to overcome errors that each of us might not have spotted as quickly if working on our own.
+
+Functionality - given the short time we had, there is still a lot of functionality for the user which was important for us.
+
+## Future Improvements
+- Fix the bugs.
+- Make the app responsive.
+- Replace the text ingredients with images, which are clickable so you can also search by ingredient.
+- Smarten the styling of the app.
+- For the user to add their own cocktail recipes to the site.
+
+## Key Learnings
+New tools: Utilizing Insomnia a lot more has made me really comfortable with breaking down data. This really helps when thinking of the best way to manipulate on the front end. Also it was the first time I have truely explored styling frameworks, sometimes they can be really useful, other times when you are tring to make tweaks it can be difficult knowing which className to over ride.
+
+React.js: This was my first project witing in React.js, this helped me to get more familiar with the new format vs vanilla javascript.
