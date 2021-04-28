@@ -65,13 +65,13 @@ Once we were signed off, we started coding our project first by creating the app
 
 We started off by installing the Bulma Framework so that we could render a basic layout for our homepage. From this we were able to import a navbar, which we then added Links to and then imported this component to App.js which held all of our routers.
 
-**Home Page**
-For the homepage, before we added any functionality, we started rendering components in the JSX return section. We hadded a hreo, two search bars and a container that would hold popular cocktails using the random api endpoint.
+**Home Page:**
+For the homepage, before we added any functionality, we started rendering components in the JSX return section. We hadded a hero, two search bars (name, ingredient) and a container that would hold popular cocktails using the random api endpoint.
 
-**Cocktail Search** 
+**Cocktail Search:** 
 This component was the page that would render the search results of each cocktail in a grid format. We started by importing useState, useEffect and Axios so that we create our get GET requests to the API. Once we had created the requested, the data was then returned in an array format which we then needed to map through in the JSX.
 
-**Cocktail Card**
+**Cocktail Card:**
 Once we had mapped through the array from the GET request in the cocktail seach component, we were able to pass in the keys the props and access them in the Cocktail Card. The puporse of this component is to format each cocktail within the grid on the previous page. A link to was also added to the card which linked to url of cocktail that was being clicked. 
 
 
