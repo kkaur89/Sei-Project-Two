@@ -38,5 +38,14 @@ This API had many different endpoints, allowing you to search by ingredient, nam
 - react-router-dom
 - Bulma CSS Framework
 
+## Project Timeline - 48 hours
 
+### Planning
+The first day was spent researching the API, and then breaking down the data in Insomnia. We looked into all six different endpoints to see which one we would need and how we could manipulate them in the front end.
+
+The API returned a max of 100 cocktails per endpoint, with information such as the name, one image, ingredients and measures. 
+
+<img width="717" alt="Screenshot 2021-04-28 at 11 27 32" src="https://user-images.githubusercontent.com/77445688/116390279-c94d5480-a815-11eb-9bd5-0d81d649b8d6.png">
+
+Once we were comfortable with the dataset it was then time create a basic wireframe of the components and how they would all relate to each other. We wanted a homepage with some search functionality that would then return the results on a differnet page in a list. Each cocktail in the list would be clickable so then the user is taken to seperate page where they can read up on the details of the cocktail.
 
