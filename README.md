@@ -17,6 +17,8 @@ This was a pair coding project, where we were briefed to build a React app using
 
 This API had many different endpoints, allowing you to search by ingredient, name etc. This then allowed us to make multiple requests and add more features for the user.
 
+Deployed version available **[here](https://tipple-your-fancy.netlify.app)**.
+
 ## Project Brief
 
 - Consume a public API
@@ -30,6 +32,7 @@ This API had many different endpoints, allowing you to search by ingredient, nam
 - Javascript (ES6)
 - HTML5
 - SCSS
+- CSS Animation
 - React.js
 -  **[Cocktail DB API](https://www.thecocktaildb.com/api.php)**
 - Axios
@@ -53,4 +56,12 @@ Once we were comfortable with the dataset it was then time create a basic wirefr
 
 ### Getting started
 Once we were signed off, we started coding our project first by creating the app ```npx create-react-app APP_NAME --template cra-template-ga-ldn```, adding the origin of our repo name to GitHub and pushing up. Then once inside the app we installed ```yarn``` and then ```yarn start``` to run the server.
+
+### Building the Components
+**Further Installation:**
+- Bulma Framework
+- React Router Dom
+- Axios
+
+We started off by installing the Bulma Framework so that we could render a basic layout for our homepage. From this we were able to import a navbar, which we then added Links to and then imported this component to App.js which held all of our routers.
 
