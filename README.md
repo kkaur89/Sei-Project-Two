@@ -31,7 +31,7 @@ This API had many different endpoints, allowing you to search by ingredient, nam
 - HTML5
 - SCSS
 - React.js
-- https://www.thecocktaildb.com/api.php
+- * **[Cocktail DB API](https://www.thecocktaildb.com/api.php)**
 - Axios
 - Insomnia REST Client
 - Yarn
@@ -48,4 +48,9 @@ The API returned a max of 100 cocktails per endpoint, with information such as t
 <img width="717" alt="Screenshot 2021-04-28 at 11 27 32" src="https://user-images.githubusercontent.com/77445688/116390279-c94d5480-a815-11eb-9bd5-0d81d649b8d6.png">
 
 Once we were comfortable with the dataset it was then time create a basic wireframe of the components and how they would all relate to each other. We wanted a homepage with some search functionality that would then return the results on a differnet page in a list. Each cocktail in the list would be clickable so then the user is taken to seperate page where they can read up on the details of the cocktail.
+
+![Screenshot 2021-04-28 at 11 42 36](https://user-images.githubusercontent.com/77445688/116391296-e0407680-a816-11eb-9eee-2ba3f32e062b.png)
+
+### Getting started
+Once we were signed off, we started coding our project first by installing *yarn* and then to start the server *yarn start*
 
