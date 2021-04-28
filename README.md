@@ -1,4 +1,4 @@
-# Tipple your Fancy : SEI Project Two
+# Tipple your Fancy? : SEI Project Two
 
 ## Contents
 
@@ -119,6 +119,7 @@ The cocktail show component is the page that would display each cocktail with fu
 **A-Z:** 
 This component was created by using the search by letter api endpoint. An array was created of letters which were then mapped through in JSX. Each letter was rendered as a button on the page, and then the onClick would handle the return of all the cocktails that have that begin with that letter being clicked.
 
+**Connecting the HomePage to the Cocktail Search Page:** 
 The main issue we came across was that the below function we used to push the user to cocktail search page after typing something in the search field was not working. 
 
 
@@ -136,9 +137,9 @@ The main issue we came across was that the below function we used to push the us
         history.push('/cocktail')
       }
 
-As this was the example that we were given during class, we were unclear as to why this was not working. We exhasted the internet for solutions. The next and final day out course tutors helped us with a fix using ```{useLocation}``` which was unknown to us.
+As this was the example that we were given during class, we were unclear as to why this was not working. We exhasted the internet for solutions. The next and final day of the project, the course tutors helped us with a fix using ```{useLocation}``` which was unknown to us.
 
-This meant that what the search criteria entered into fields on the page, would then need to be passed into the Get request on the Cocktail search page in order for the page to render with the results. So the code was refactored to the below on the homepage:
+This meant that the search criteria entered into input field on the home page, would then need to be passed into the Get request on the Cocktail search page in order for the page to render with the results. So the code was refactored to the below on the homepage:
 
 
     const Home = () => {
@@ -186,7 +187,12 @@ This function also replaces with placeholder text inside the search input field 
 https://user-images.githubusercontent.com/77445688/116415877-bc3e5e80-a831-11eb-8bcb-44fbd564f1ef.mov
 
 ### Styling 
-The layout was created using Bulma framework, helping to provide the site with a coherent structures. The logo was created using free logo websites, with the inspiration for the colour theme of the site being taken from the logo image.
+The layout was created using Bulma framework, helping to provide the site with a coherent structure across all pages. The logo was created using a free logo website, with the inspiration for the colour theme of the site being taken from the logo image.
 
-There was use of CSS animations which can be seen on the cocktail shaker on the homepage. Hover over the cocktail shaker and it starts to shake. If you click on the shaker, then a random cocktail appear on the screen in the format of the cocktail card. 
+There was use of CSS animations which can be seen on the cocktail shaker on the homepage. Hover over the cocktail shaker and it starts to shake. If you click on the shaker, then a random cocktail appears on the screen in the format of the cocktail card. 
 
+https://user-images.githubusercontent.com/77445688/116418903-7636ca00-a834-11eb-9f2b-e439c34990be.mov
+
+
+### Bugs
+The ingredient search feature returns results with other spirits as well as the one entered, i.e. rum will bring back vodka based cocktails.
