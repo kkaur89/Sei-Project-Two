@@ -54,6 +54,7 @@ Once we were comfortable with the dataset it was then time create a basic wirefr
 
 ![Screenshot 2021-04-28 at 11 42 36](https://user-images.githubusercontent.com/77445688/116391296-e0407680-a816-11eb-9eee-2ba3f32e062b.png)
 
+
 ### Getting started
 Once we were signed off, we started coding our project first by creating the app ```npx create-react-app APP_NAME --template cra-template-ga-ldn```, adding the origin of our repo name to GitHub and pushing up. Then once inside the app we installed ```yarn``` and then ```yarn start``` to run the server.
 
@@ -73,5 +74,8 @@ This component was the page that would render the search results of each cocktai
 
 **Cocktail Card:**
 Once we had mapped through the array from the GET request in the cocktail seach component, we were able to pass in the keys the props and access them in the Cocktail Card. The puporse of this component is to format each cocktail within the grid on the previous page. A link to was also added to the card which linked to url of cocktail that was being clicked. 
+
+**Cocktail Show:**
+The cocktail show component is the page that would display each cocktail with full information of method and ingredients. 
 
 
