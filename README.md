@@ -31,7 +31,7 @@ This API had many different endpoints, allowing you to search by ingredient, nam
 - HTML5
 - SCSS
 - React.js
-- * **[Cocktail DB API](https://www.thecocktaildb.com/api.php)**
+-  **[Cocktail DB API](https://www.thecocktaildb.com/api.php)**
 - Axios
 - Insomnia REST Client
 - Yarn
@@ -52,5 +52,5 @@ Once we were comfortable with the dataset it was then time create a basic wirefr
 ![Screenshot 2021-04-28 at 11 42 36](https://user-images.githubusercontent.com/77445688/116391296-e0407680-a816-11eb-9eee-2ba3f32e062b.png)
 
 ### Getting started
-Once we were signed off, we started coding our project first by installing *yarn* and then to start the server *yarn start*
+Once we were signed off, we started coding our project first by creating the app ```npx create-react-app APP_NAME --template cra-template-ga-ldn```, adding the origin of our repo name to GitHub and pushing up. Then once inside the app we installed ```yarn``` and then ```yarn start``` to run the server.
 
