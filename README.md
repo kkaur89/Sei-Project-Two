@@ -198,7 +198,7 @@ https://user-images.githubusercontent.com/77445688/116418903-7636ca00-a834-11eb-
 The ingredient search feature returns cocktails with other spirits as well as the one entered, i.e. rum will bring back vodka based cocktails also.
 
 ## Challenges
-This biggest challenge was working on the fix for results to render on a different page. That took my and my coding partner hours to try and fix on our before we had to ask for help.
+This biggest challenge was working on the fix for results to render on a different page. That took me and my coding partner hours to try and fix on our before we had to ask for help.
 
 ## Wins
 
