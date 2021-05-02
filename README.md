@@ -33,7 +33,7 @@ Deployed version available **[here](https://tipple-your-fancy.netlify.app)**.
 - React.js
 - Javascript (ES6)
 - HTML5
-- SCSS
+- SASS
 - CSS Animation
 - React.js
 -  **[Cocktail DB API](https://www.thecocktaildb.com/api.php)**
